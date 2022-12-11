@@ -36,7 +36,7 @@ export default function handler(req : any, res : any) {
         new_user.save(function(err : any){
           if(err) console.log(err);
         });
-    } else { // did exit, update them
+    } else { // did exist, update them
       const update = { latitude:info.latitude, longitude: info.longitude };
       User.findOneAndUpdate(search_filter, update, function(error: any, result: any){
       console.log("updated user info");
@@ -55,11 +55,11 @@ export default function handler(req : any, res : any) {
     User.findOne({name: req.query.hello }, function (err : any, docs: any) { //
     if (err){
         console.log(err)
-        res.status(404).json("no such name has been registered");
+        res.status(404).json("error");
     }
     else{
       if (docs == null) {
-        res.status(404).json("no such name has been registered");
+        res.status(404).json("no such name has been registered"); // this will make Arduino code go to default, which is Providence
       } else {
         console.log("sending result json...");
         res.status(200).json({ latitude: docs.latitude, longitude: docs.longitude });

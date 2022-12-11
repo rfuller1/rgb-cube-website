@@ -13,19 +13,13 @@ export default function Home() {
 
 
   const handleSubmit = (event : any) => {
-      event.preventDefault(); // 👈️ prevent page refresh
-
-
-      fetch("https://rgb-led-app.herokuapp.com/api/hello", {  // Enter your IP address here
-
+      event.preventDefault(); // prevent page refresh
+      fetch("https://rgb-led-app.herokuapp.com/api/hello", {
       method: "POST",
       mode: "no-cors",
       body: JSON.stringify({name: name, latitude: lati, longitude:longi})
-
-
     })
-
-    setName("");
+    setName(""); // reset form
     setLati("");
     setLongi("");
 
@@ -34,7 +28,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-
       <main className={styles.main}>
         <h1 className={styles.title}>
           RGB Weather Cube
@@ -43,9 +36,6 @@ export default function Home() {
         <p className={styles.description}>
           Get started by telling us the location you want to get your weather from.
         </p>
-
-
-
         <div>
 
    <form onSubmit={handleSubmit}>
@@ -61,7 +51,7 @@ export default function Home() {
        id="latitude"
        name="latitude"
        type="text"
-       pattern="^-?[0-9]\d*(\.\d+)?$"
+       pattern="^-?[0-9]\d{0,1}(\.\d+)?$"
        onChange={event => setLati(event.target.value)}
        value={lati}
      />
@@ -70,12 +60,10 @@ export default function Home() {
        id="longitude"
        name="longitude"
        type="text"
-       pattern="^-?[0-9]\d*(\.\d+)?$"
+       pattern="^-?[0-9]\d{0,1}(\.\d+)?$"
        onChange={event => setLongi(event.target.value)}
        value={longi}
      />
-
-
      <button type="submit">Submit form</button>
    </form>
  </div>
