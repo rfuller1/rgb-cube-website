@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var User = require('../../user_db.js');
 
 
-export default function handler(req, res) {
+export default function handler(req : any, res : any) {
   console.log("HERE");
   console.log(req.query.hello);
   console.log("DONE HERE");
@@ -28,17 +28,17 @@ export default function handler(req, res) {
 
     // need to see if already exists
     const search_filter = { name: info.name };
-    User.exists(search_filter, function (err, doc){
+    User.exists(search_filter, function (err : any, doc : any){
     if (err){
         console.log(err)
     } else {
       if (doc == null) { // no such person existed already, create and save them
-        new_user.save(function(err){
+        new_user.save(function(err : any){
           if(err) console.log(err);
         });
     } else { // did exit, update them
       const update = { latitude:info.latitude, longitude: info.longitude };
-      User.findOneAndUpdate(search_filter, update, function( error, result){
+      User.findOneAndUpdate(search_filter, update, function(error: any, result: any){
       console.log("updated user info");
 });
 }
@@ -52,7 +52,7 @@ export default function handler(req, res) {
     case "GET":
     console.log("testing get request");
 
-    User.findOne({name: req.query.hello }, function (err, docs) {
+    User.findOne({name: req.query.hello }, function (err : any, docs: any) {
     if (err){
         console.log(err)
         res.status(404).json("no such name has been registered");

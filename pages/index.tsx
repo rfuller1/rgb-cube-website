@@ -12,22 +12,22 @@ export default function Home() {
   const [longi, setLongi] = useState('');
 
 
-  const handleSubmit = event => {
+  const handleSubmit = (event : any) => {
       event.preventDefault(); // 👈️ prevent page refresh
 
 
-      fetch('http://localhost:3000/api/hello', {  // Enter your IP address here
+      fetch("http://localhost:3000/api/hello", {  // Enter your IP address here
 
-      method: 'POST',
-      mode: 'cors',
+      method: "POST",
+      mode: "cors",
       body: JSON.stringify({name: name, latitude: lati, longitude:longi})
 
 
     })
 
-    setName('');
-    setLati('');
-    setLongi('');
+    setName("");
+    setLati("");
+    setLongi("");
 
 
     };
@@ -41,7 +41,7 @@ export default function Home() {
         </h1>
 
         <p className={styles.description}>
-          Get started by telling us the location you'd like to get your weather from.
+          Get started by telling us the location you want to get your weather from.
         </p>
 
 
