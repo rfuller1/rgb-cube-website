@@ -16,7 +16,7 @@ export default function Home() {
       event.preventDefault(); // 👈️ prevent page refresh
 
 
-      fetch("https://rgb-cube-website.vercel.app/api/hello", {  // Enter your IP address here
+      fetch("https://rgb-led-app.herokuapp.com/api/hello", {  // Enter your IP address here
 
       method: "POST",
       mode: "no-cors",
