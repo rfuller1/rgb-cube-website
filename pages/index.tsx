@@ -19,7 +19,7 @@ export default function Home() {
       fetch("https://rgb-cube-website.vercel.app/api/hello", {  // Enter your IP address here
 
       method: "POST",
-      mode: "cors",
+      mode: "no-cors",
       body: JSON.stringify({name: name, latitude: lati, longitude:longi})
 
 
