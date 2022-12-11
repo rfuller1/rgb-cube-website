@@ -4,7 +4,7 @@ var User = require('../../user_db.js');
 
 export default function handler(req : any, res : any) {
 //  console.log("HERE");
-  //console.log(req.query.hello);
+  console.log(req.query.hello);
   //console.log("DONE HERE");
 
   mongoose.connect(
@@ -52,7 +52,7 @@ export default function handler(req : any, res : any) {
     case "GET":
     console.log("testing get request");
 
-    User.findOne({name: "meow" }, function (err : any, docs: any) { //req.query.hello
+    User.findOne({name: req.query.hello }, function (err : any, docs: any) { //
     if (err){
         console.log(err)
         res.status(404).json("no such name has been registered");
