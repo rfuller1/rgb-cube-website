@@ -8,7 +8,7 @@ export default function handler(req : any, res : any) {
   //console.log("DONE HERE");
 
   mongoose.connect(
-    process.env.MONGODB_URI,
+    "mongodb+srv://testUser:csci1660TaughtMeNichts@csci1600.swvtwi0.mongodb.net/?retryWrites=true&w=majority",
     () => console.log("connected to mongodb")
   );
 
